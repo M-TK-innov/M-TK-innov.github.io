@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M-TK innov | Innovation en santé et en éducation au Bénin</title>
+<meta name="description" content="M-TK innov conçoit au Bénin des solutions d'intelligence artificielle pour la santé (MedTech Innovation) et des outils pour apprendre le code, l'IA et l'électronique (SIKA Education).">
+<meta property="og:title" content="M-TK innov">
+<meta property="og:description" content="Des technologies qui soignent et qui forment, conçues au Bénin.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1512'/%3E%3Cpath d='M14 46V18l12 16 12-16v28' fill='none' stroke='%2334d399' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='48' cy='20' r='5' fill='%23f2c66d'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --fond:#0b1512;
+  --fond-2:#101e1a;
+  --carte:#13241f;
+  --ligne:rgba(255,255,255,.09);
+  --texte:#eef4f1;
+  --doux:#a3b5ad;
+  --vert:#34d399;
+  --vert-fonce:#0f766e;
+  --or:#f2c66d;
+  --rayon:18px;
+  --titre:"Bricolage Grotesque",Georgia,serif;
+  --corps:Inter,system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--fond);color:var(--texte);font-family:var(--corps);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img,svg{display:block}
+.conteneur{width:min(1160px,100% - 32px);margin-inline:auto}
+
+/* En-tête */
+header{position:sticky;top:0;z-index:20;background:rgba(11,21,18,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--ligne)}
+.barre{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--titre);font-weight:800;font-size:1.2rem;letter-spacing:.02em}
+.logo b{color:var(--vert)}
+nav ul{display:flex;gap:30px;list-style:none;font-size:.93rem;color:var(--doux)}
+nav a:hover{color:var(--texte)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;font-weight:600;font-size:.95rem;transition:transform .15s,background .15s,border-color .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-plein{background:var(--vert);color:#06231a}
+.btn-plein:hover{background:#5ee3b5}
+.btn-contour{border:1px solid rgba(255,255,255,.22)}
+.btn-contour:hover{border-color:var(--texte)}
+.menu-btn{display:none;background:none;border:0;color:var(--texte);cursor:pointer;padding:8px}
+
+/* Accueil */
+.hero{position:relative;padding:120px 0 90px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:-30% -10% auto auto;width:720px;height:720px;background:radial-gradient(circle,rgba(52,211,153,.18),transparent 62%);pointer-events:none}
+.hero::after{content:"";position:absolute;left:-200px;bottom:-260px;width:560px;height:560px;background:radial-gradient(circle,rgba(242,198,109,.10),transparent 65%);pointer-events:none}
+.cauris{display:flex;gap:7px;margin-bottom:28px}
+.cauris span{width:10px;height:14px;border-radius:50%;background:var(--or);opacity:.9}
+.cauris span:nth-child(2){opacity:.6}.cauris span:nth-child(3){opacity:.35}
+h1{font-family:var(--titre);font-weight:800;font-size:clamp(2.6rem,7vw,5.4rem);line-height:1.02;letter-spacing:-.025em;max-width:15ch}
+h1 em{font-style:normal;color:var(--vert)}
+.hero-bas{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:32px;margin-top:44px}
+.hero p{max-width:46ch;color:var(--doux);font-size:1.08rem}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+
+/* Bandeau distinctions */
+.distinctions{border-block:1px solid var(--ligne);background:var(--fond-2)}
+.distinctions .conteneur{display:grid;grid-template-columns:repeat(3,1fr)}
+.distinction{padding:26px 24px;border-left:1px solid var(--ligne)}
+.distinction:first-child{border-left:0;padding-left:0}
+.distinction strong{display:block;font-family:var(--titre);font-size:1.05rem;color:var(--or);letter-spacing:.01em}
+.distinction span{color:var(--doux);font-size:.9rem}
+
+/* Sections */
+section{padding:110px 0}
+.surtitre{font-size:.8rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--vert);margin-bottom:14px}
+h2{font-family:var(--titre);font-weight:700;font-size:clamp(2rem,4.4vw,3.2rem);line-height:1.08;letter-spacing:-.02em;max-width:20ch}
+.intro{color:var(--doux);max-width:58ch;margin-top:16px;font-size:1.05rem}
+.citation{padding:90px 0;text-align:center}
+.citation p{font-family:var(--titre);font-weight:500;font-size:clamp(1.5rem,3.4vw,2.4rem);line-height:1.25;max-width:26ch;margin-inline:auto}
+.citation p span{color:var(--vert)}
+
+/* Pôles */
+.poles{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:52px}
+.pole{position:relative;padding:40px;border-radius:var(--rayon);background:var(--carte);border:1px solid var(--ligne);overflow:hidden;display:flex;flex-direction:column;gap:16px;min-height:340px}
+.pole .etiquette{font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+.pole h3{font-family:var(--titre);font-size:2rem;line-height:1.1}
+.pole p{color:var(--doux)}
+.pole ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
+.pole li{font-size:.84rem;padding:6px 12px;border-radius:999px;border:1px solid var(--ligne);color:var(--texte)}
+.pole.sante .etiquette{color:var(--vert)}
+.pole.educ .etiquette{color:var(--or)}
+.pole.sante{background:linear-gradient(160deg,#123128 0%,var(--carte) 55%)}
+.pole.educ{background:linear-gradient(160deg,#2c2715 0%,var(--carte) 55%)}
+.pole svg{position:absolute;right:28px;top:28px;opacity:.9}
+
+/* Produits */
+.filtres{display:flex;flex-wrap:wrap;gap:8px;margin-top:36px}
+.filtres button{font:inherit;font-size:.88rem;padding:8px 16px;border-radius:999px;border:1px solid var(--ligne);background:none;color:var(--doux);cursor:pointer}
+.filtres button[aria-pressed="true"]{background:var(--texte);color:var(--fond);border-color:var(--texte)}
+.grille{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+.produit{display:flex;flex-direction:column;gap:12px;padding:28px;border-radius:var(--rayon);background:var(--carte);border:1px solid var(--ligne);transition:border-color .2s,transform .2s}
+.produit:hover{border-color:rgba(52,211,153,.45);transform:translateY(-3px)}
+.produit[hidden]{display:none}
+.statut{align-self:flex-start;font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;border-radius:6px;background:rgba(255,255,255,.06);color:var(--doux)}
+.statut.ok{background:rgba(52,211,153,.14);color:var(--vert)}
+.statut.prime{background:rgba(242,198,109,.15);color:var(--or)}
+.produit h3{font-family:var(--titre);font-size:1.5rem;letter-spacing:-.01em}
+.produit p{color:var(--doux);font-size:.95rem}
+.produit .pole-nom{margin-top:auto;padding-top:14px;border-top:1px solid var(--ligne);font-size:.82rem;color:var(--doux)}
+
+/* Services */
+.services{background:var(--fond-2);border-block:1px solid var(--ligne)}
+.services-grille{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:52px;background:var(--ligne);border:1px solid var(--ligne);border-radius:var(--rayon);overflow:hidden}
+.service{background:var(--fond-2);padding:32px 26px}
+.service .num{font-family:var(--titre);color:var(--vert);font-size:.95rem}
+.service h3{font-family:var(--titre);font-size:1.25rem;margin:10px 0 8px}
+.service p{color:var(--doux);font-size:.93rem}
+
+/* Mission */
+.mission{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:center}
+.chiffres{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.chiffre{padding:28px;border-radius:var(--rayon);border:1px solid var(--ligne)}
+.chiffre strong{display:block;font-family:var(--titre);font-size:2.6rem;line-height:1;color:var(--texte)}
+.chiffre span{display:block;margin-top:8px;color:var(--doux);font-size:.9rem}
+
+/* Contact */
+.contact{padding:0 0 110px}
+.contact-carte{padding:64px;border-radius:28px;background:linear-gradient(135deg,var(--vert-fonce),#0c3b33 60%,#16231d);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:32px}
+.contact-carte h2{max-width:18ch}
+.contact-carte p{color:#cfe7df;margin-top:12px;max-width:48ch}
+
+footer{border-top:1px solid var(--ligne);padding:36px 0;color:var(--doux);font-size:.88rem}
+footer .conteneur{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
+footer nav{display:flex;gap:22px}
+footer a:hover{color:var(--texte)}
+
+.apparait{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.apparait.vu{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.apparait{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+@media (max-width:960px){
+  .grille{grid-template-columns:1fr 1fr}
+  .services-grille{grid-template-columns:1fr 1fr}
+  .mission{grid-template-columns:1fr;gap:40px}
+}
+@media (max-width:760px){
+  nav ul{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;gap:0;background:var(--fond);border-bottom:1px solid var(--ligne);padding:8px 16px 16px}
+  nav ul.ouvert{display:flex}
+  nav ul a{display:block;padding:12px 0}
+  .menu-btn{display:block}
+  .barre .btn{display:none}
+  .hero{padding:72px 0 64px}
+  section{padding:76px 0}
+  .distinctions .conteneur{grid-template-columns:1fr}
+  .distinction,.distinction:first-child{border-left:0;padding:18px 0;border-top:1px solid var(--ligne)}
+  .distinction:first-child{border-top:0}
+  .poles,.grille,.services-grille{grid-template-columns:1fr}
+  .pole{padding:30px;min-height:0}
+  .pole svg{position:static;width:40px;height:40px}
+  .contact-carte{padding:36px 26px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="conteneur barre">
+    <a class="logo" href="#accueil" aria-label="M-TK innov, accueil">
+      <svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#13241f"/><path d="M14 46V18l12 16 12-16v28" fill="none" stroke="#34d399" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="48" cy="20" r="5" fill="#f2c66d"/></svg>
+      <span>M-TK <b>innov</b></span>
+    </a>
+    <nav aria-label="Navigation principale">
+      <ul id="menu">
+        <li><a href="#poles">Nos pôles</a></li>
+        <li><a href="#produits">Produits</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#mission">Mission</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-plein" href="#contact">Travailler avec nous</a>
+    <button class="menu-btn" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="accueil">
+  <div class="hero">
+    <div class="conteneur">
+      <div class="cauris" aria-hidden="true"><span></span><span></span><span></span></div>
+      <h1>Des technologies qui <em>soignent</em> et qui <em>forment</em>, conçues au Bénin.</h1>
+      <div class="hero-bas">
+        <p>Intelligence artificielle médicale, outils de santé publique, jeux pour apprendre le code sans écran. Nous transformons les besoins du terrain en produits utilisables dès aujourd'hui.</p>
+        <div class="actions">
+          <a class="btn btn-plein" href="#produits">Découvrir nos produits</a>
+          <a class="btn btn-contour" href="#contact">Nous contacter</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="distinctions">
+    <div class="conteneur">
+      <div class="distinction"><strong>1re place, Hackathon e-Santé 2026</strong><span>avec le projet BAYA</span></div>
+      <div class="distinction"><strong>Incubation Sèmè City</strong><span>Dagbeninon, sélectionnée à l'Academy 5</span></div>
+      <div class="distinction"><strong>2e place nationale FLL</strong><span>équipe du LMJFGMK, formée et accompagnée par nos soins</span></div>
+    </div>
+  </div>
+
+  <div class="citation">
+    <div class="conteneur apparait">
+      <p>Partir d'un problème local, le résoudre avec <span>rigueur</span>, et le rendre accessible à tous.</p>
+    </div>
+  </div>
+
+  <section id="poles">
+    <div class="conteneur">
+      <div class="apparait">
+        <div class="surtitre">Nos pôles</div>
+        <h2>Deux pôles, une même exigence.</h2>
+        <p class="intro">Depuis avril 2024, M-TK innov développe ses produits autour de deux axes complémentaires : la santé numérique et l'éducation technologique.</p>
+      </div>
+      <div class="poles">
+        <article class="pole sante apparait">
+          <svg width="52" height="52" viewBox="0 0 52 52" fill="none" stroke="#34d399" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="44" height="44" rx="12"/><path d="M26 15v22M15 26h22"/></svg>
+          <span class="etiquette">MedTech Innovation</span>
+          <h3>L'IA au service des soignants</h3>
+          <p>Scribe médical, gestion du sang, prédiction des épidémies, transcription des analyses dans les langues nationales. Des outils pensés pour les hôpitaux, les centres de santé et les autorités sanitaires.</p>
+          <ul><li>ParleDocteur</li><li>BloodLink 229</li><li>PaluWatch AI</li><li>Dagbeninon</li><li>BAYA</li></ul>
+        </article>
+        <article class="pole educ apparait">
+          <svg width="52" height="52" viewBox="0 0 52 52" fill="none" stroke="#f2c66d" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="26" cy="26" rx="14" ry="20"/><path d="M26 10v32M20 18h2M20 24h2M20 30h2M30 18h2M30 24h2M30 30h2"/></svg>
+          <span class="etiquette">SIKA Education</span>
+          <h3>Apprendre le numérique, même sans écran</h3>
+          <p>Jeux de cartes, application hors ligne et formations pour initier enfants, élèves et enseignants au code, à l'intelligence artificielle, à l'électronique et à l'anglais.</p>
+          <ul><li>Carte SIKA</li><li>Carte SIKA Jeu</li><li>LinguaBox</li><li>Formations IA et robotique</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="produits" style="padding-top:0">
+    <div class="conteneur">
+      <div class="apparait">
+        <div class="surtitre">Nos produits</div>
+        <h2>Huit produits, nés du terrain.</h2>
+      </div>
+      <div class="filtres" role="group" aria-label="Filtrer les produits">
+        <button type="button" data-filtre="tous" aria-pressed="true">Tous</button>
+        <button type="button" data-filtre="sante" aria-pressed="false">MedTech Innovation</button>
+        <button type="button" data-filtre="educ" aria-pressed="false">SIKA Education</button>
+      </div>
+      <div class="grille">
+        <article class="produit" data-pole="sante">
+          <span class="statut">En développement</span>
+          <h3>ParleDocteur</h3>
+          <p>Scribe médical IA : il écoute la consultation, structure les données cliniques et prépare une ordonnance validée par le médecin. Interopérable FHIR R4, HL7 v2 et DHIS2.</p>
+          <span class="pole-nom">MedTech Innovation</span>
+        </article>
+        <article class="produit" data-pole="sante">
+          <span class="statut">Prototype</span>
+          <h3>BloodLink 229</h3>
+          <p>Réseau intelligent de gestion du sang au Bénin, pour rapprocher donneurs, banques de sang et hôpitaux face aux besoins urgents.</p>
+          <span class="pole-nom">MedTech Innovation</span>
+        </article>
+        <article class="produit" data-pole="sante">
+          <span class="statut">Prototype</span>
+          <h3>PaluWatch AI</h3>
+          <p>Prédiction, surveillance et alerte précoce contre le paludisme : carte des risques par département, prévisions, signalements communautaires.</p>
+          <span class="pole-nom">MedTech Innovation</span>
+        </article>
+        <article class="produit" data-pole="sante">
+          <span class="statut">En incubation</span>
+          <h3>Dagbeninon</h3>
+          <p>Transcription des résultats d'analyses biomédicales dans les langues nationales, pour que chaque patient comprenne son bilan.</p>
+          <span class="pole-nom">MedTech Innovation</span>
+        </article>
+        <article class="produit" data-pole="sante">
+          <span class="statut prime">Primé</span>
+          <h3>BAYA</h3>
+          <p>Solution e-santé lauréate de la 1re place au Hackathon e-Santé 2026, développée avec l'équipe G-one.</p>
+          <span class="pole-nom">MedTech Innovation</span>
+        </article>
+        <article class="produit" data-pole="educ">
+          <span class="statut ok">Disponible</span>
+          <h3>Carte SIKA</h3>
+          <p>Jeux de cartes Code Cauris pour apprendre la programmation, l'IA et l'électronique sans écran, en classe ou en famille.</p>
+          <span class="pole-nom">SIKA Education</span>
+        </article>
+        <article class="produit" data-pole="educ">
+          <span class="statut ok">Disponible</span>
+          <h3>Carte SIKA Jeu</h3>
+          <p>Le jeu sur écran, hors ligne : programmer le zem jusqu'au marché, relever des défis Arduino et IA, obtenir un certificat par niveau. Web, Android, iOS et Windows.</p>
+          <span class="pole-nom">SIKA Education</span>
+        </article>
+        <article class="produit" data-pole="educ">
+          <span class="statut">En développement</span>
+          <h3>LinguaBox</h3>
+          <p>Apprendre l'anglais hors ligne, du niveau A1 au C2, avec un tuteur vocal et une conversation quotidienne de 15 minutes, pour les francophones.</p>
+          <span class="pole-nom">SIKA Education</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="services">
+    <div class="conteneur">
+      <div class="apparait">
+        <div class="surtitre">Nos services</div>
+        <h2>L'équipe qui construit nos produits peut construire le vôtre.</h2>
+      </div>
+      <div class="services-grille apparait">
+        <div class="service"><span class="num">01</span><h3>Solutions e-santé</h3><p>Applications cliniques, dossiers patients, tableaux de bord épidémiologiques, interopérabilité FHIR et DHIS2.</p></div>
+        <div class="service"><span class="num">02</span><h3>Intelligence artificielle</h3><p>Reconnaissance vocale, modèles de prédiction, assistants conversationnels adaptés aux langues et aux réalités locales.</p></div>
+        <div class="service"><span class="num">03</span><h3>Applications web et mobiles</h3><p>Plateformes en ligne et hors ligne, PWA, Android, iOS et bureau, conçues pour une connexion intermittente.</p></div>
+        <div class="service"><span class="num">04</span><h3>Formation IA et robotique</h3><p>Ateliers pour élèves, enseignants et professionnels, accompagnement d'équipes de compétition en robotique.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="mission">
+    <div class="conteneur mission">
+      <div class="apparait">
+        <div class="surtitre">Notre mission</div>
+        <h2>Beaucoup de solutions conçues ailleurs ne fonctionnent pas ici.</h2>
+        <p class="intro">Connexion instable, langues nationales, coût du matériel, rareté des spécialistes : nous partons de ces contraintes pour concevoir des outils qui marchent hors ligne, parlent la langue des usagers et restent abordables.</p>
+      </div>
+      <div class="chiffres apparait">
+        <div class="chiffre"><strong>2024</strong><span>année de création, au Bénin</span></div>
+        <div class="chiffre"><strong>2</strong><span>pôles : santé et éducation</span></div>
+        <div class="chiffre"><strong>8</strong><span>produits en ligne ou en développement</span></div>
+        <div class="chiffre"><strong>4</strong><span>plateformes : web, Android, iOS, bureau</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div id="contact" class="contact">
+    <div class="conteneur">
+      <div class="contact-carte apparait">
+        <div>
+          <h2>Un projet en santé ou en éducation ?</h2>
+          <p>Hôpital, école, ONG, institution ou entreprise : parlons de votre besoin et de la manière d'y répondre ensemble.</p>
+        </div>
+        <div class="actions">
+          <a class="btn btn-plein" href="https://linkedin.com/in/turibio-keke" target="_blank" rel="noopener">Écrire sur LinkedIn</a>
+          <a class="btn btn-contour" href="https://github.com/M-TK-innov" target="_blank" rel="noopener">Voir notre GitHub</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="conteneur">
+    <span>© <span id="annee">2026</span> M-TK innov, Bénin</span>
+    <nav aria-label="Liens du pied de page">
+      <a href="#poles">Pôles</a>
+      <a href="#produits">Produits</a>
+      <a href="https://github.com/M-TK-innov" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+document.getElementById('annee').textContent = new Date().getFullYear();
+
+const menuBtn = document.querySelector('.menu-btn');
+const menu = document.getElementById('menu');
+menuBtn.addEventListener('click', () => {
+  const ouvert = menu.classList.toggle('ouvert');
+  menuBtn.setAttribute('aria-expanded', ouvert);
+});
+menu.addEventListener('click', e => {
+  if (e.target.tagName === 'A') { menu.classList.remove('ouvert'); menuBtn.setAttribute('aria-expanded', false); }
+});
+
+const boutons = document.querySelectorAll('.filtres button');
+boutons.forEach(b => b.addEventListener('click', () => {
+  boutons.forEach(x => x.setAttribute('aria-pressed', x === b));
+  const f = b.dataset.filtre;
+  document.querySelectorAll('.produit').forEach(p => { p.hidden = f !== 'tous' && p.dataset.pole !== f; });
+}));
+
+const obs = 'IntersectionObserver' in window && new IntersectionObserver(entrees => {
+  entrees.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vu'); obs.unobserve(e.target); } });
+}, { threshold: .12 });
+document.querySelectorAll('.apparait').forEach(el => obs ? obs.observe(el) : el.classList.add('vu'));
+</script>
+</body>
+</html>
